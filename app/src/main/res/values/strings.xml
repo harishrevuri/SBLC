@@ -4,4 +4,11 @@
     <string name="title_candy">Candy</string>
     <string name="title_notifications">Notifications</string>
     <string name="settings">CR</string>
+    <string name="action_title">Laxmi Group of Industries</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_candy">Hello Candy</string>
+    <string name="hello_cotton">Hello Cotton</string>
+    <string name="hello_other">Hello World</string>
 </resources>

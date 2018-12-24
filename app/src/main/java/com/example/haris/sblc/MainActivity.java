@@ -1,61 +1,80 @@
 package com.example.haris.sblc;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.haris.sblc.fragments.CandyFragment;
+import com.example.haris.sblc.fragments.CottonFragment;
+import com.example.haris.sblc.fragments.OtherFragment;
 
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_cotton);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_candy);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
+public class MainActivity extends AppCompatActivity implements
+        BottomNavigationView.OnNavigationItemSelectedListener,
+        CottonFragment.OnFragmentInteractionListener,
+        CandyFragment.OnFragmentInteractionListener,
+        OtherFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-
-        FragmentCotton fragmentCotton = new FragmentCotton();
-        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
-
-        ft.replace(R.id.content, fragmentCotton);
-        ft.commit();
-
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_top);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        getSupportActionBar().setTitle(R.string.action_title);
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);
         return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                showCottonFragment();
+                return true;
+            case R.id.navigation_dashboard:
+                showCandyFragment();
+                return true;
+            case R.id.navigation_notifications:
+                showOtherFragment();
+                return true;
+        }
+        return false;
+    }
+
+    void showCottonFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content, CottonFragment.newInstance())
+                .commit();
+    }
+
+    void showCandyFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content, CandyFragment.newInstance())
+                .commit();
+    }
+
+    void showOtherFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content, OtherFragment.newInstance())
+                .commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        //ToDo
     }
 }
