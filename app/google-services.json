@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "260484085477",
+    "firebase_url": "https://sblc-b030b.firebaseio.com",
+    "project_id": "sblc-b030b",
+    "storage_bucket": "sblc-b030b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260484085477:android:7e74e671a884fe6e",
+        "android_client_info": {
+          "package_name": "com.example.haris.sblc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260484085477-kbo9tj1fvb04u9siqcppnso1bpcj0k03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfU_V_Lhh47DOh9AMmkNpiNsnv2NtdZZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

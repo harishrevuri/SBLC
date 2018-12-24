@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarText" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell_b</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/toolbar_title</item>
+    </style>
+
+    <style name="TextViewNormal" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
+    <style name="TextViewPrice" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextViewHyperlink" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_blue</item>
+    </style>
+</resources>

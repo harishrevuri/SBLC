@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D81B60</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#A9A9A9</color>
+    <color name="action_bar_bkgnd">#d3d3d3</color>
+    <color name="toolbar_title">#ffffff</color>
+    <color name="color_black">#000000</color>
+    <color name="color_magenta">#FF00FF</color>
+    <color name="color_blue">#0000EE</color>
+</resources>
