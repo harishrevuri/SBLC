@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:weightSum="4"
-    android:gravity="center">
+    android:weightSum="4">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_weight="1"
+            style="@style/TextViewNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            style="@style/TextViewNormal"
-            android:text="Cotton Price in COTEX"/>
+            android:text="Cotton Price in COTEX" />
 
         <TextView
             android:id="@+id/cotex_price"
@@ -30,51 +30,52 @@
             android:text="N/A" />
 
         <TextView
-            android:layout_weight="1"
+            style="@style/TextViewHyperlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            style="@style/TextViewHyperlink"
-            android:text="Click here to Modify"/>
+            android:text="Click here to Modify" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/action_bar_bkgnd"
-        android:layout_marginStart="20dp" />
+        android:layout_marginRight="20dp"
+        android:background="@color/action_bar_bkgnd" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_weight="1"
+            style="@style/TextViewNormal"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="wrap_content"
-            android:text="Cotton Price in SBICI"
-            style="@style/TextViewNormal"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/title_cotton_price_header" />
 
         <TextView
             android:id="@+id/sbici_price"
-            android:layout_weight="1"
+            style="@style/TextViewPrice"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="wrap_content"
-            android:text="N/A"
-            style="@style/TextViewPrice"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/str_price_na" />
 
         <TextView
-            android:layout_weight="1"
+            style="@style/TextViewHyperlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            style="@style/TextViewHyperlink"
-            android:text="Click here to Modify"/>
+            android:text="Click here to Modify" />
     </LinearLayout>
 </LinearLayout>

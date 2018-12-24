@@ -11,4 +11,10 @@
     <string name="hello_candy">Hello Candy</string>
     <string name="hello_cotton">Hello Cotton</string>
     <string name="hello_other">Hello World</string>
+    <string name="toggle_on">Show Price</string>
+    <string name="toggle_off">Remove Price</string>
+    <string name="action_set">Set</string>
+    <string name="err_msg_invalid">Invalid</string>
+    <string name="str_price_na">N/A</string>
+    <string name="title_cotton_price_header">Cotton Price in SBICI</string>
 </resources>

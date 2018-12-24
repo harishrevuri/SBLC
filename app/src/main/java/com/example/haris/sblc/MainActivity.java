@@ -1,9 +1,11 @@
 package com.example.haris.sblc;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -73,8 +75,20 @@ public class MainActivity extends AppCompatActivity implements
                 .commit();
     }
 
+    void notifyCottonPriceChange(double newPrice) {
+        Intent intent = new Intent(Constants.EVENT_PRICE_CHANGE);
+        intent.putExtra(Constants.ARG_PRICE, newPrice);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+    }
+
     @Override
     public void onFragmentInteraction(Uri uri) {
-        //ToDo
+
+    }
+
+    @Override
+    public void requestPriceSet(double price) {
+        //ToDo - replace with Firebase set
+        notifyCottonPriceChange(price);
     }
 }
