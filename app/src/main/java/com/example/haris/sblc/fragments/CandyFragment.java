@@ -3,12 +3,16 @@ package com.example.haris.sblc.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.haris.sblc.R;
+import com.example.haris.sblc.Utils;
 
 
 public class CandyFragment extends Fragment {
@@ -48,12 +52,24 @@ public class CandyFragment extends Fragment {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Utils.hideKeyboard();
                 if (dataValid()) {
                     double newPrice = Double.parseDouble(
                             price_cotton.getText().toString()
                     );
                     mListener.requestPriceSet(newPrice);
                 }
+            }
+        });
+
+        price_cotton.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    btn_submit.performClick();
+                    return true;
+                }
+                return false;
             }
         });
     }

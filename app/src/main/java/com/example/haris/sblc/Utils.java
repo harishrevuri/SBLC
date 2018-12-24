@@ -8,4 +8,8 @@ public class Utils {
     public static String formatPrice(double amount) {
         return priceFormatter.format(amount);
     }
+
+    public static void hideKeyboard() {
+        //ToDo
+    }
 }
