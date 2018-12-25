@@ -17,4 +17,6 @@
     <string name="err_msg_invalid">Invalid</string>
     <string name="str_price_na">N/A</string>
     <string name="title_cotton_price_header">Cotton Price in SBICI</string>
+    <string name="title_cotton_price">Cotton Price</string>
+    <string name="action_modify">Click here to Modify</string>
 </resources>
