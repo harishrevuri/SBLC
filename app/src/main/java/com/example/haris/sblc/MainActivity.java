@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(R.string.action_title);
+        //getSupportActionBar().setTitle(R.string.action_title);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);

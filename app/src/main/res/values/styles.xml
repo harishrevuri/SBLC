@@ -8,12 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ToolbarText" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell_b</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/toolbar_title</item>
-    </style>
-
     <style name="TextViewNormal" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
         <item name="android:textSize">26sp</item>
@@ -44,7 +38,21 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
+        <item name="android:textAlignment" tools:targetApi="17">center</item>
+        <item name="android:gravity">center</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ActionText" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/bell</item>
+        <item name="android:textAlignment" tools:targetApi="17">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textAlignment" tools:targetApi="17">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/toolbar_title</item>
+    </style>
 </resources>
