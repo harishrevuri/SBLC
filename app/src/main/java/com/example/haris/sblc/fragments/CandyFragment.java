@@ -3,24 +3,16 @@ package com.example.haris.sblc.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.haris.sblc.R;
-import com.example.haris.sblc.Utils;
 
 
 public class CandyFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
-    private EditText price_cotton;
-    private View btn_submit;
 
     public CandyFragment() {
     }
@@ -41,46 +33,7 @@ public class CandyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_candy, container, false);
-        price_cotton = rootView.findViewById(R.id.price_cotton);
-        btn_submit = rootView.findViewById(R.id.btn_submit);
         return rootView;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Utils.hideKeyboard();
-                if (dataValid()) {
-                    double newPrice = Double.parseDouble(
-                            price_cotton.getText().toString()
-                    );
-                    mListener.requestPriceSet(newPrice);
-                }
-            }
-        });
-
-        price_cotton.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    btn_submit.performClick();
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
-
-    private boolean dataValid() {
-        if (price_cotton.getText().toString().trim().length() == 0) {
-            price_cotton.setError(getString(R.string.err_msg_invalid));
-            price_cotton.requestFocus();
-            return false;
-        }
-        return true;
     }
 
     @Override
@@ -101,6 +54,5 @@ public class CandyFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void requestPriceSet(double price);
     }
 }
