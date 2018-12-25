@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements
 
     FirebaseDatabase database;
     DatabaseReference mCottonRef;
-    DatabaseReference mCottonPriceRef;
+    DatabaseReference mCottonPriceCotextRef;
+    DatabaseReference mCottonPriceSBICIRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +55,34 @@ public class MainActivity extends AppCompatActivity implements
     private void initFirebase() {
         database = FirebaseDatabase.getInstance();
         mCottonRef = database.getReference(Constants.FIREBASE_KEY_COTTON);
-        mCottonPriceRef = mCottonRef.child(Constants.ARG_PRICE).getRef();
+        mCottonPriceCotextRef = mCottonRef.child(Constants.FIREBASE_KEY_COTEX).child(Constants.ARG_PRICE).getRef();
+        mCottonPriceSBICIRef = mCottonRef.child(Constants.FIREBASE_KEY_SBICI).child(Constants.ARG_PRICE).getRef();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mCottonPriceRef.addValueEventListener(new ValueEventListener() {
+        mCottonPriceCotextRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     double price = dataSnapshot.getValue(Double.class);
-                    notifyCottonPriceChange(price);
+                    notifyCottonPriceChange(Constants.EVENT_PRICE_CHANGE_COTEX, price);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        mCottonPriceSBICIRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    double price = dataSnapshot.getValue(Double.class);
+                    notifyCottonPriceChange(Constants.EVENT_PRICE_CHANGE_SBICI, price);
                 }
             }
 
@@ -117,8 +134,8 @@ public class MainActivity extends AppCompatActivity implements
                 .commit();
     }
 
-    void notifyCottonPriceChange(double newPrice) {
-        Intent intent = new Intent(Constants.EVENT_PRICE_CHANGE);
+    void notifyCottonPriceChange(String action, double newPrice) {
+        Intent intent = new Intent(action); //Constants.EVENT_PRICE_CHANGE);
         intent.putExtra(Constants.ARG_PRICE, newPrice);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
@@ -129,8 +146,14 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void requestPriceSet(double price) {
-        mCottonPriceRef.setValue(price);
-        notifyCottonPriceChange(price);
+    public void requestCotexPriceSet(double price) {
+        mCottonPriceCotextRef.setValue(price);
+        notifyCottonPriceChange(Constants.EVENT_PRICE_CHANGE_COTEX, price);
+    }
+
+    @Override
+    public void requestSBLCIPriceSet(double price) {
+        mCottonPriceSBICIRef.setValue(price);
+        notifyCottonPriceChange(Constants.EVENT_PRICE_CHANGE_SBICI, price);
     }
 }
